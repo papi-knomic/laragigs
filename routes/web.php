@@ -19,7 +19,7 @@ Route::get('/', [ListingController::class, 'index']);
 
 
 //get single listings
-Route::get('/listings/{listings}', [ListingController::class, 'show']);
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
 //common resource route
