@@ -34,7 +34,7 @@ class ListingController extends Controller
     public function getListings()
     {
 //        dd(request('tag'));
-       return Listing::latest()->filter(request(['tag', 'search']))->paginate(2);
+       return Listing::latest()->filter(request(['tag', 'search']))->paginate(6);
     }
 
     // get single listing
