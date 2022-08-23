@@ -23,6 +23,9 @@ Route::get( '/listings/create', [ListingController::class, 'create'] );
 //store single listings
 Route::post( '/listings', [ListingController::class, 'storeListing'] );
 
+//show edit form
+Route::get( '/listings/{listing}/edit', [ListingController::class, 'edit'] );
+
 //common resource route
 // index - show all listings
 // show - show single listings

@@ -30,6 +30,14 @@ class ListingController extends Controller
         return view('listings.create');
     }
 
+    //show edit form
+
+    public function edit(Listing $listing)
+    {
+        dd($listing);
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
     //api for get listings
     public function getListings()
     {
@@ -54,6 +62,10 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'required',
         ]);
+
+        if ($request->hasFile('logo')){
+            $formfields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
 
         Listing::create($formfields);
 
