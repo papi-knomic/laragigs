@@ -14,11 +14,17 @@
             Find or post Laravel jobs & projects
         </p>
         <div>
+            @auth
+                <a href="/listings/create" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">
+                    List a new Gig
+                </a>
+            @else
             <a
-                href="register.html"
+                href="/register"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
             >Sign Up to List a Gig</a
             >
+            @endauth
         </div>
     </div>
 </section>

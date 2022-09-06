@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Validation\Rule;
 
 class Listing extends Model
@@ -19,6 +20,7 @@ class Listing extends Model
         'logo',
         'tags',
         'description',
+        'user_id'
     ];
 
     public function scopeFilter( $query, array $filters)
@@ -32,5 +34,11 @@ class Listing extends Model
                 ->orWhere('tags', 'like', '%' . request('search') . '%')
                 ->orWhere('location', 'like', '%' . request('search') . '%');
         }
+    }
+
+    //relationship to user
+    public function user() : BelongsTo
+    {
+       return $this->belongsTo(User::class, 'user_id');
     }
 }
